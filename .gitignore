@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# claude code local/session state (not project content)
+.claude/*.lock
+.claude/settings.local.json
+
+# client source material (brochure, SOPs, promo photos) — reference only, not site code
+/files
