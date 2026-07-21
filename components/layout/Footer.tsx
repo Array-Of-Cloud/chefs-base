@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { MailIcon } from "@/components/icons/MailIcon";
+import { PhoneIcon } from "@/components/icons/PhoneIcon";
+import { InstagramIcon } from "@/components/icons/InstagramIcon";
 import type { SiteSettings } from "@/types";
 
 const footerLinks = [
@@ -17,6 +20,8 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
   const contactPhone = settings?.contactPhone ?? "+918137060637";
   const address =
     settings?.address ?? "Door No. 110F, Ottupara, Pulikkal, Malappuram, Kerala 673634, India";
+  const instagram = settings?.instagram ?? "https://instagram.com/chefsbasellp";
+  const instagramHandle = `@${instagram.replace(/\/+$/, "").split("/").pop()}`;
   const year = new Date().getFullYear();
 
   return (
@@ -42,14 +47,25 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
             ))}
           </nav>
 
-          <div className="flex flex-col gap-2 font-sans text-sm text-on-dark/80">
-            <a href={`mailto:${contactEmail}`} className="hover:text-accent">
+          <div className="flex flex-col gap-3 font-sans text-sm text-on-dark/80">
+            <a href={`mailto:${contactEmail}`} className="flex items-center gap-2 hover:text-accent">
+              <MailIcon className="h-4 w-4 shrink-0" />
               {contactEmail}
             </a>
-            <a href={`tel:${contactPhone}`} className="hover:text-accent">
+            <a href={`tel:${contactPhone}`} className="flex items-center gap-2 hover:text-accent">
+              <PhoneIcon className="h-4 w-4 shrink-0" />
               {contactPhone}
             </a>
-            <p>{address}</p>
+            <a
+              href={instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-accent"
+            >
+              <InstagramIcon className="h-4 w-4 shrink-0" />
+              {instagramHandle}
+            </a>
+            <p className="pt-1">{address}</p>
           </div>
         </div>
 
