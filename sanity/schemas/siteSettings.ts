@@ -9,7 +9,34 @@ export default defineType({
   fields: [
     defineField({ name: "siteName", title: "Site name", type: "string", validation: (r) => r.required() }),
     defineField({ name: "tagline", title: "Tagline", type: "string", description: "Short brand line shown in the footer, e.g. under the wordmark." }),
-    defineField({ name: "logo", title: "Logo", type: "image", description: "Optional — falls back to a text wordmark if left empty." }),
+    defineField({
+      name: "logoIcon",
+      title: "Logo icon (monogram, dark)",
+      type: "image",
+      description: "Compact \"CB\" mark, dark colored — used in the navbar and favicon (light backgrounds). Falls back to a text wordmark if left empty.",
+      group: "branding",
+    }),
+    defineField({
+      name: "logoIconLight",
+      title: "Logo icon (monogram, light)",
+      type: "image",
+      description: "Compact \"CB\" mark, light colored — used in the footer (dark background).",
+      group: "branding",
+    }),
+    defineField({
+      name: "logoFull",
+      title: "Logo, full lockup (dark)",
+      type: "image",
+      description: "Full logo with wordmark and tagline, dark colored — for light backgrounds. Not currently placed on the site; kept available for future/marketing use.",
+      group: "branding",
+    }),
+    defineField({
+      name: "logoFullLight",
+      title: "Logo, full lockup (light)",
+      type: "image",
+      description: "Full logo with wordmark and tagline, light colored — for dark backgrounds.",
+      group: "branding",
+    }),
     defineField({ name: "contactEmail", title: "Contact email", type: "string", validation: (r) => r.required().email() }),
     defineField({ name: "contactPhone", title: "Contact phone", type: "string", validation: (r) => r.required() }),
     defineField({ name: "whatsappNumber", title: "WhatsApp number", type: "string", description: "Include country code, no spaces. e.g. +918137060637", validation: (r) => r.required() }),
@@ -40,5 +67,8 @@ export default defineType({
     defineField({ name: "defaultSeoDescription", title: "Default SEO description", type: "string", group: "seo" }),
     defineField({ name: "defaultOgImage", title: "Default OG image", type: "image", group: "seo" }),
   ],
-  groups: [{ name: "seo", title: "SEO & social" }],
+  groups: [
+    { name: "branding", title: "Branding" },
+    { name: "seo", title: "SEO & social" },
+  ],
 });

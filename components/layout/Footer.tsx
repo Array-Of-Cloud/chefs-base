@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/ui/Logo";
 import { MailIcon } from "@/components/icons/MailIcon";
 import { PhoneIcon } from "@/components/icons/PhoneIcon";
 import { InstagramIcon } from "@/components/icons/InstagramIcon";
@@ -29,7 +30,7 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-3">
           <div>
-            <span className="font-serif text-2xl italic">Chefs Base</span>
+            <Logo settings={settings} variant="icon" onBackground="dark" />
             <p className="mt-3 max-w-xs font-sans text-sm text-on-dark/70">
               {tagline}
             </p>

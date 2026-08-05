@@ -2,7 +2,7 @@ import { groq } from "next-sanity";
 
 export const siteSettingsQuery = groq`
   *[_type == "siteSettings"][0] {
-    siteName, tagline, logo, contactEmail, contactPhone,
+    siteName, tagline, logoIcon, logoIconLight, logoFull, logoFullLight, contactEmail, contactPhone,
     whatsappNumber, address, gstNumber, fssaiNumber,
     colorScheme,
     instagram, facebook, linkedin,

@@ -72,7 +72,10 @@ export interface Certification {
 export interface SiteSettings {
   siteName: string;
   tagline?: string;
-  logo?: SanityImageSource;
+  logoIcon?: SanityImageSource;
+  logoIconLight?: SanityImageSource;
+  logoFull?: SanityImageSource;
+  logoFullLight?: SanityImageSource;
   contactEmail: string;
   contactPhone: string;
   whatsappNumber: string;
