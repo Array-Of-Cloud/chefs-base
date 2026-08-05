@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MeetTheTeam } from "@/components/sections/MeetTheTeam";
 import { CertificationsStrip } from "@/components/sections/CertificationsStrip";
 
 export const metadata: Metadata = {
@@ -47,6 +48,7 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+      <MeetTheTeam />
       <CertificationsStrip />
     </div>
   );

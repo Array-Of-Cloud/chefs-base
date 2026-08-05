@@ -69,6 +69,12 @@ export const allCategoriesQuery = groq`
   }
 `;
 
+export const teamMembersQuery = groq`
+  *[_type == "teamMember" && defined(photo)] | order(order asc) {
+    _id, name, role, photo, bio
+  }
+`;
+
 export const featuredTestimonialsQuery = groq`
   *[_type == "testimonial" && featured == true] | order(order asc) {
     _id, quote, name, role, company, country, photo

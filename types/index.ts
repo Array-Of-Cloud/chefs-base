@@ -52,6 +52,14 @@ export interface Testimonial {
   photo?: SanityImageSource;
 }
 
+export interface TeamMember {
+  _id: string;
+  name: string;
+  role: string;
+  photo?: SanityImageSource;
+  bio?: string;
+}
+
 export interface Certification {
   _id: string;
   name: string;
