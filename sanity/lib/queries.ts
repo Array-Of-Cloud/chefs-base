@@ -30,6 +30,11 @@ export const productBySlugQuery = groq`
     preparationSteps,
     mainImage, gallery, ingredients, shelfLife,
     storageInfo, customOrderAvailable,
+    "sopFiles": sopFiles[]{
+      label,
+      "fileUrl": file.asset->url,
+      "filename": file.asset->originalFilename
+    },
     category->{ name, slug },
     seoTitle, seoDescription
   }

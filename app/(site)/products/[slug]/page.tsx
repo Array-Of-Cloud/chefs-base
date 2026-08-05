@@ -8,6 +8,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import { Button } from "@/components/ui/Button";
 import { JsonLd } from "@/components/JsonLd";
 import { SanityImage } from "@/components/ui/SanityImage";
+import { DownloadIcon } from "@/components/icons/DownloadIcon";
 import type { Product } from "@/types";
 
 export async function generateStaticParams() {
@@ -156,13 +157,34 @@ export default async function ProductPage({
         </div>
       </div>
 
-      {product.preparationSteps && (
+      {(product.preparationSteps || (product.sopFiles && product.sopFiles.length > 0)) && (
         <div className="mx-auto mt-16 max-w-6xl">
           <div className="rounded-xl bg-surface-alt p-6 sm:p-8 lg:p-10">
-            <h2 className="font-serif text-2xl italic text-on-light">How to Prepare</h2>
-            <div className="prose prose-sm mt-4 max-w-none font-sans text-on-light/80">
-              <PortableText value={product.preparationSteps} />
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <h2 className="font-serif text-2xl italic text-on-light">How to Prepare</h2>
+              {product.sopFiles && product.sopFiles.length > 0 && (
+                <div className="flex flex-wrap gap-3">
+                  {product.sopFiles.map((sop, i) => (
+                    <a
+                      key={i}
+                      href={sop.fileUrl}
+                      download={sop.filename}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-xl border border-accent px-4 py-2 font-sans text-sm text-accent transition-colors hover:bg-accent hover:text-on-light"
+                    >
+                      <DownloadIcon className="h-4 w-4" />
+                      Download SOP{sop.label ? ` (${sop.label})` : ""}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
+            {product.preparationSteps && (
+              <div className="prose prose-sm mt-4 max-w-none font-sans text-on-light/80">
+                <PortableText value={product.preparationSteps} />
+              </div>
+            )}
           </div>
         </div>
       )}

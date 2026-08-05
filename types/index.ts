@@ -12,6 +12,7 @@ export interface Product {
   category: { name: string; slug: { current: string } };
   description?: PortableTextBlock[];
   preparationSteps?: PortableTextBlock[];
+  sopFiles?: { label?: string; fileUrl: string; filename?: string }[];
   ingredients?: string[];
   shelfLife?: string;
   storageInfo?: string;

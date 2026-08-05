@@ -19,6 +19,40 @@ export default defineType({
       of: [{ type: "block" }],
       description: "Cooking/preparation instructions for restaurant kitchen staff (ingredients to add, steps, timing).",
     }),
+    defineField({
+      name: "sopFiles",
+      title: "SOP documents (PDF)",
+      description: "Downloadable kitchen SOP sheets. Add one, or more than one if the product has separate variants (e.g. Chicken / Vegetable).",
+      type: "array",
+      of: [
+        defineField({
+          name: "sopFile",
+          title: "SOP document",
+          type: "object",
+          fields: [
+            defineField({
+              name: "label",
+              title: "Label",
+              type: "string",
+              description: "e.g. \"Chicken\" or \"Vegetable\" — leave blank if there's only one document.",
+            }),
+            defineField({
+              name: "file",
+              title: "PDF file",
+              type: "file",
+              options: { accept: "application/pdf" },
+              validation: (r) => r.required(),
+            }),
+          ],
+          preview: {
+            select: { title: "label", subtitle: "file.asset.originalFilename" },
+            prepare({ title, subtitle }) {
+              return { title: title || "SOP document", subtitle };
+            },
+          },
+        }),
+      ],
+    }),
     defineField({ name: "ingredients", title: "Ingredients", type: "array", of: [{ type: "string" }] }),
     defineField({ name: "shelfLife", title: "Shelf life", type: "string", description: "e.g. 24 months at room temperature" }),
     defineField({ name: "storageInfo", title: "Storage instructions", type: "string" }),
