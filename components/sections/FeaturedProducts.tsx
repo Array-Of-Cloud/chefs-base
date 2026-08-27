@@ -13,7 +13,7 @@ export async function FeaturedProducts() {
         <div className="mb-12 flex flex-col items-center gap-3 text-center">
           <h2 className="font-serif text-4xl italic text-on-light">Featured Products</h2>
           <p className="max-w-xl font-sans text-on-light/70">
-            A selection of our retort-ready favorites, made for foodservice at scale.
+            A selection of our best-selling favorites, made for foodservice at scale.
           </p>
         </div>
 

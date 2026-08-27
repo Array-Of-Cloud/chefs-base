@@ -4,7 +4,7 @@ import { CertificationsStrip } from "@/components/sections/CertificationsStrip";
 
 export const metadata: Metadata = {
   title: "About | Chefs Base LLP",
-  description: "The story behind Chefs Base LLP, a Kerala-based retort food company.",
+  description: "The story behind Chefs Base LLP, a Kerala-based food export company.",
 };
 
 export default function AboutPage() {
@@ -17,15 +17,15 @@ export default function AboutPage() {
             Chefs Base LLP was founded in 2024 by a group of friends in Kerala with a
             simple goal: bring the authentic flavors of Malabar to kitchens around
             the world. Before launching, the team spent extensive time studying
-            retort technology through hands-on research — testing recipes in retort
-            pouches to get taste, safety, and shelf life right.
+            retort technology through hands-on research — testing recipes for months
+            to get taste, safety, and shelf life right.
           </p>
           <p className="font-sans text-on-light/70">
             We're passionate about bringing authentic Malabar flavors to kitchens
             everywhere, blending traditional recipes with modern food processing
             standards. Every gravy is crafted using carefully selected ingredients,
-            authentic spice blends, and hygienic manufacturing processes — sealed in
-            high-barrier retort pouches, ready to cook wherever you are.
+            authentic spice blends, and hygienic manufacturing processes — sealed for
+            freshness, ready to cook wherever you are.
           </p>
         </div>
 
