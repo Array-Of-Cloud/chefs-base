@@ -3,6 +3,7 @@ import { TrustBar } from "@/components/sections/TrustBar";
 import { FeaturedProducts } from "@/components/sections/FeaturedProducts";
 import { TechnologyTeaser } from "@/components/sections/TechnologyTeaser";
 import { WhyUs } from "@/components/sections/WhyUs";
+import { WhoWeServe } from "@/components/sections/WhoWeServe";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { CertificationsStrip } from "@/components/sections/CertificationsStrip";
 import { LatestPosts } from "@/components/sections/LatestPosts";
@@ -16,6 +17,7 @@ export default function Home() {
       <FeaturedProducts />
       <TechnologyTeaser />
       <WhyUs />
+      <WhoWeServe />
       <Testimonials />
       <CertificationsStrip />
       <LatestPosts />
