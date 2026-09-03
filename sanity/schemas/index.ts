@@ -2,6 +2,7 @@ import aboutPage from "./aboutPage";
 import category from "./category";
 import certification from "./certification";
 import homepage from "./homepage";
+import legalPage from "./legalPage";
 import post from "./post";
 import product from "./product";
 import siteSettings from "./siteSettings";
@@ -18,4 +19,5 @@ export const schemaTypes = [
   certification,
   teamMember,
   testimonial,
+  legalPage,
 ];

@@ -80,8 +80,19 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-on-dark/10 pt-6 font-sans text-xs text-on-dark/60">
-          © {year} {siteName}. All rights reserved.
+        <div className="mt-12 flex flex-col gap-4 border-t border-on-dark/10 pt-6 font-sans text-xs text-on-dark/60 sm:flex-row sm:items-center sm:justify-between">
+          <span>© {year} {siteName}. All rights reserved.</span>
+          <nav className="flex flex-wrap gap-x-5 gap-y-1">
+            <Link href="/privacy" className="hover:text-accent">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-accent">
+              Terms &amp; Conditions
+            </Link>
+            <Link href="/cookies" className="hover:text-accent">
+              Cookie Policy
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>

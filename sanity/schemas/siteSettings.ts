@@ -7,6 +7,14 @@ export default defineType({
   // Singleton — create/delete/duplicate actions are restricted in
   // sanity.config.ts's document.actions resolver, not on the schema itself.
   fields: [
+    defineField({
+      name: "siteIsLive",
+      title: "Site is live",
+      type: "boolean",
+      description: "Turn off to show a \"Launching Soon\" holding page to the public. Toggling this back on (e.g. via the ceremony launch button) takes effect within seconds, no redeploy needed.",
+      initialValue: true,
+      group: "launch",
+    }),
     defineField({ name: "siteName", title: "Site name", type: "string", validation: (r) => r.required() }),
     defineField({ name: "tagline", title: "Tagline", type: "string", description: "Short brand line shown in the footer, e.g. under the wordmark." }),
     defineField({
@@ -82,6 +90,7 @@ export default defineType({
     defineField({ name: "defaultOgImage", title: "Default OG image", type: "image", group: "seo" }),
   ],
   groups: [
+    { name: "launch", title: "Launch" },
     { name: "branding", title: "Branding" },
     { name: "seo", title: "SEO & social" },
   ],

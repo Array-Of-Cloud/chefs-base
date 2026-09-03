@@ -96,7 +96,14 @@ export interface AboutPageContent {
   visionText?: string;
 }
 
+export interface LegalPage {
+  title: string;
+  lastUpdated: string;
+  body: PortableTextBlock[];
+}
+
 export interface SiteSettings {
+  siteIsLive?: boolean;
   siteName: string;
   tagline?: string;
   logoIcon?: SanityImageSource;

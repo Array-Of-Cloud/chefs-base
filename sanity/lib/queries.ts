@@ -2,6 +2,7 @@ import { groq } from "next-sanity";
 
 export const siteSettingsQuery = groq`
   *[_type == "siteSettings"][0] {
+    siteIsLive,
     siteName, tagline, logoIcon, logoIconLight, logoFull, logoFullLight, contactEmail, contactPhone,
     whatsappNumber, address, secondaryAddressLabel, secondaryAddress, gstNumber, fssaiNumber,
     colorScheme,
@@ -99,5 +100,11 @@ export const teamMembersQuery = groq`
 export const featuredTestimonialsQuery = groq`
   *[_type == "testimonial" && featured == true] | order(order asc) {
     _id, quote, name, role, company, country, photo
+  }
+`;
+
+export const legalPageBySlugQuery = groq`
+  *[_type == "legalPage" && slug.current == $slug][0] {
+    title, lastUpdated, body
   }
 `;
