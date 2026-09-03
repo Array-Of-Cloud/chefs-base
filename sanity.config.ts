@@ -3,7 +3,7 @@ import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./sanity/schemas";
 
-const singletonTypes = new Set(["siteSettings"]);
+const singletonTypes = new Set(["siteSettings", "homepage", "aboutPage"]);
 
 export default defineConfig({
   name: "default",
@@ -20,6 +20,12 @@ export default defineConfig({
             S.listItem()
               .title("Site settings")
               .child(S.document().schemaType("siteSettings").documentId("siteSettings")),
+            S.listItem()
+              .title("Homepage")
+              .child(S.document().schemaType("homepage").documentId("homepage")),
+            S.listItem()
+              .title("About page")
+              .child(S.document().schemaType("aboutPage").documentId("aboutPage")),
             S.divider(),
             ...S.documentTypeListItems().filter(
               (item) => item.getId() && !singletonTypes.has(item.getId()!)

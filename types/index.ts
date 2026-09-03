@@ -69,6 +69,33 @@ export interface Certification {
   licenseNumber?: string;
 }
 
+interface ReasonItem {
+  title: string;
+  description: string;
+}
+
+export interface Homepage {
+  heroEyebrow?: string;
+  heroHeadline: string;
+  heroSubhead?: string;
+  heroPrimaryButtonLabel?: string;
+  heroSecondaryButtonLabel?: string;
+  trustStats?: { label: string; value: string }[];
+  whyUsReasons?: ReasonItem[];
+  whoWeServeIntro?: string;
+  whoWeServeSegments?: ReasonItem[];
+  ctaHeadline?: string;
+  ctaSubtext?: string;
+  ctaButtonLabel?: string;
+}
+
+export interface AboutPageContent {
+  storyParagraph1?: string;
+  storyParagraph2?: string;
+  missionText?: string;
+  visionText?: string;
+}
+
 export interface SiteSettings {
   siteName: string;
   tagline?: string;
@@ -80,6 +107,8 @@ export interface SiteSettings {
   contactPhone: string;
   whatsappNumber: string;
   address?: string;
+  secondaryAddressLabel?: string;
+  secondaryAddress?: string;
   gstNumber?: string;
   fssaiNumber?: string;
   colorScheme?: ThemeKey;

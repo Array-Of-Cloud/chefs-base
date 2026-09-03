@@ -1,31 +1,42 @@
 import Image from "next/image";
+import { client } from "@/sanity/lib/client";
+import { homepageQuery } from "@/sanity/lib/queries";
 import { Button } from "@/components/ui/Button";
 import { SpiceParticles } from "@/components/ui/SpiceParticles";
+import type { Homepage } from "@/types";
 
-export function Hero() {
+export async function Hero() {
+  const homepage = await client.fetch<Homepage | null>(homepageQuery);
+
+  const eyebrow = homepage?.heroEyebrow ?? "Crafted in Malabar";
+  const headline = homepage?.heroHeadline ?? "Ready-to-Cook Kerala Gravies, Crafted for the World";
+  const subhead =
+    homepage?.heroSubhead ??
+    "Chefs Base LLP produces preservative-free, shelf-stable Malabar gravy bases for international restaurant kitchens — authentic flavor, 24-month shelf life, export-ready quality.";
+  const primaryButtonLabel = homepage?.heroPrimaryButtonLabel ?? "Explore Products";
+  const secondaryButtonLabel = homepage?.heroSecondaryButtonLabel ?? "Get a Quote";
+
   return (
     <section className="relative flex min-h-screen flex-col overflow-hidden bg-surface md:flex-row">
       <SpiceParticles />
 
       <div className="relative z-10 order-2 flex w-full flex-col items-start justify-center gap-6 px-6 py-16 md:order-1 md:w-[55%] md:px-16">
         <span className="font-sans text-sm uppercase tracking-[0.2em] text-accent opacity-0 [animation:fade-up_0.7s_ease-out_forwards]">
-          Crafted in Malabar
+          {eyebrow}
         </span>
         <div className="h-px w-0 bg-accent [animation:shimmer-grow_0.8s_ease-out_forwards]" />
         <h1 className="font-serif text-6xl italic leading-tight text-on-light opacity-0 [animation:fade-up_0.7s_ease-out_forwards] [animation-delay:0.1s]">
-          Ready-to-Cook Kerala Gravies, Crafted for the World
+          {headline}
         </h1>
         <p className="max-w-xl font-sans text-lg text-on-light/70 opacity-0 [animation:fade-up_0.7s_ease-out_forwards] [animation-delay:0.2s]">
-          Chefs Base LLP produces preservative-free, shelf-stable Malabar gravy
-          bases for international restaurant kitchens — authentic flavor, 24-month
-          shelf life, export-ready quality.
+          {subhead}
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-4 opacity-0 [animation:fade-up_0.7s_ease-out_forwards] [animation-delay:0.4s]">
           <Button variant="primary" href="/products">
-            Explore Products
+            {primaryButtonLabel}
           </Button>
           <Button variant="secondary" href="/contact">
-            Get a Quote
+            {secondaryButtonLabel}
           </Button>
         </div>
       </div>

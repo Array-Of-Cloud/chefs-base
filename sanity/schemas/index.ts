@@ -1,5 +1,7 @@
+import aboutPage from "./aboutPage";
 import category from "./category";
 import certification from "./certification";
+import homepage from "./homepage";
 import post from "./post";
 import product from "./product";
 import siteSettings from "./siteSettings";
@@ -8,6 +10,8 @@ import testimonial from "./testimonial";
 
 export const schemaTypes = [
   siteSettings,
+  homepage,
+  aboutPage,
   product,
   category,
   post,

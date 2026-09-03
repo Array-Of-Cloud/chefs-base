@@ -3,10 +3,26 @@ import { groq } from "next-sanity";
 export const siteSettingsQuery = groq`
   *[_type == "siteSettings"][0] {
     siteName, tagline, logoIcon, logoIconLight, logoFull, logoFullLight, contactEmail, contactPhone,
-    whatsappNumber, address, gstNumber, fssaiNumber,
+    whatsappNumber, address, secondaryAddressLabel, secondaryAddress, gstNumber, fssaiNumber,
     colorScheme,
     instagram, facebook, linkedin,
     defaultSeoTitle, defaultSeoDescription, defaultOgImage
+  }
+`;
+
+export const homepageQuery = groq`
+  *[_type == "homepage"][0] {
+    heroEyebrow, heroHeadline, heroSubhead, heroPrimaryButtonLabel, heroSecondaryButtonLabel,
+    trustStats,
+    whyUsReasons,
+    whoWeServeIntro, whoWeServeSegments,
+    ctaHeadline, ctaSubtext, ctaButtonLabel
+  }
+`;
+
+export const aboutPageQuery = groq`
+  *[_type == "aboutPage"][0] {
+    storyParagraph1, storyParagraph2, missionText, visionText
   }
 `;
 

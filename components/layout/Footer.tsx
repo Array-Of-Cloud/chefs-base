@@ -21,6 +21,8 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
   const contactPhone = settings?.contactPhone ?? "+918137060637";
   const address =
     settings?.address ?? "Door No. 110F, Ottupara, Pulikkal, Malappuram, Kerala 673634, India";
+  const secondaryAddress = settings?.secondaryAddress;
+  const secondaryAddressLabel = settings?.secondaryAddressLabel ?? "Secondary Office";
   const instagram = settings?.instagram ?? "https://instagram.com/chefsbasellp";
   const instagramHandle = `@${instagram.replace(/\/+$/, "").split("/").pop()}`;
   const year = new Date().getFullYear();
@@ -67,6 +69,14 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
               {instagramHandle}
             </a>
             <p className="pt-1">{address}</p>
+            {secondaryAddress && (
+              <div className="pt-1">
+                <span className="block text-xs uppercase tracking-wide text-on-dark/50">
+                  {secondaryAddressLabel}
+                </span>
+                <p>{secondaryAddress}</p>
+              </div>
+            )}
           </div>
         </div>
 

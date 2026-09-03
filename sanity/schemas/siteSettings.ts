@@ -41,6 +41,20 @@ export default defineType({
     defineField({ name: "contactPhone", title: "Contact phone", type: "string", validation: (r) => r.required() }),
     defineField({ name: "whatsappNumber", title: "WhatsApp number", type: "string", description: "Include country code, no spaces. e.g. +918137060637", validation: (r) => r.required() }),
     defineField({ name: "address", title: "Address", type: "text", rows: 3 }),
+    defineField({
+      name: "secondaryAddressLabel",
+      title: "Secondary office — label",
+      type: "string",
+      description: "e.g. \"UK Office\" or \"Head Office\". Only shows in the footer once the address below is filled in.",
+      initialValue: "UK Office",
+    }),
+    defineField({
+      name: "secondaryAddress",
+      title: "Secondary office — address",
+      type: "text",
+      rows: 3,
+      description: "Leave empty until this location is confirmed — the footer only shows this block when it's filled in.",
+    }),
     defineField({ name: "gstNumber", title: "GST number", type: "string" }),
     defineField({ name: "fssaiNumber", title: "FSSAI license number", type: "string" }),
     defineField({

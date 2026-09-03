@@ -1,4 +1,11 @@
-const segments = [
+import { client } from "@/sanity/lib/client";
+import { homepageQuery } from "@/sanity/lib/queries";
+import type { Homepage } from "@/types";
+
+const fallbackIntro =
+  "Built for foodservice operations that need consistent quality without a full prep kitchen.";
+
+const fallbackSegments = [
   {
     title: "Restaurants & Takeaways",
     description: "Authentic Malabar flavor without the labor-intensive prep — ready to finish and serve.",
@@ -21,15 +28,17 @@ const segments = [
   },
 ];
 
-export function WhoWeServe() {
+export async function WhoWeServe() {
+  const homepage = await client.fetch<Homepage | null>(homepageQuery);
+  const intro = homepage?.whoWeServeIntro ?? fallbackIntro;
+  const segments = homepage?.whoWeServeSegments?.length ? homepage.whoWeServeSegments : fallbackSegments;
+
   return (
     <section className="bg-surface px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 flex flex-col items-center gap-3 text-center">
           <h2 className="font-serif text-4xl italic text-on-light">Who We Serve</h2>
-          <p className="max-w-xl font-sans text-on-light/70">
-            Built for foodservice operations that need consistent quality without a full prep kitchen.
-          </p>
+          <p className="max-w-xl font-sans text-on-light/70">{intro}</p>
         </div>
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           {segments.map((segment) => (
