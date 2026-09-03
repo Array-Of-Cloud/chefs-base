@@ -45,7 +45,7 @@ export async function sendContactEmail(input: ContactEmailInput) {
       .filter(Boolean);
 
     await resend.emails.send({
-      from: "Chefs Base Website <onboarding@resend.dev>",
+      from: "Chefs Base Website <noreply@chefs-base.com>",
       to: recipients,
       replyTo: input.email,
       subject: `New RFQ from ${input.company}`,
