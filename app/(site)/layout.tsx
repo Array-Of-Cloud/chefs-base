@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import type { CSSProperties } from "react";
+import { Analytics } from "@vercel/analytics/next";
 import { getSiteSettings } from "@/sanity/lib/getSiteSettings";
 import { urlForImage } from "@/sanity/lib/image";
 import { getTheme } from "@/lib/themes";
@@ -84,6 +85,7 @@ export default async function RootLayout({
         <main className="flex flex-1 flex-col">{children}</main>
         <Footer settings={settings} />
         <FloatingWhatsApp settings={settings} />
+        <Analytics />
       </body>
     </html>
   );
