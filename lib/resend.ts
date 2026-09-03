@@ -37,11 +37,16 @@ export async function sendContactEmail(input: ContactEmailInput) {
 
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const contactEmail = process.env.CONTACT_EMAIL;
+    // CONTACT_EMAIL may be one address or several, comma-separated —
+    // e.g. "info@chefs-base.com,chefsbasellp@outlook.com".
+    const recipients = (process.env.CONTACT_EMAIL ?? "")
+      .split(",")
+      .map((address) => address.trim())
+      .filter(Boolean);
 
     await resend.emails.send({
       from: "Chefs Base Website <onboarding@resend.dev>",
-      to: contactEmail ? [contactEmail] : [],
+      to: recipients,
       replyTo: input.email,
       subject: `New RFQ from ${input.company}`,
       text: [
